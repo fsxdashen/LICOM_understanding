@@ -1,4 +1,26 @@
 ```Fortran
+DO K = 1, npz-1
+  DO J = jsd, jed
+    DO I = isd, ied
+      TUP = ATB (I,J,K,1) - TO (K +1)
+      SUP = ATB (I,J,K,2) - SO (K +1)
+      TLO = ATB (I,J,K +1,1) - TO (k +1)
+      SLO = ATB (I,J,K +1,2) - SO (K +1)
+      RHOUP = op%others%dens(TUP, SUP, C(k+1,:))
+      RHOLO = op%others%dens(TLO, SLO, C(k+1,:))
+      rict(I,J,K) = VIT (I,J,K +1)* OD0* G * (RHOLO - RHOUP)*ODZT(K+1)
+    END DO
+  END DO
+END DO
+```
+
+最终需要得到的条件如下
+
+$$R_i=\frac{g}{\rho _0}\frac{\partial \rho _{pot}}{\partial z}/\left[ \left( \frac{\partial u}{\partial z} \right) ^2+\left( \frac{\partial v}{\partial z} \right) ^2 \right] $$
+
+---
+
+```Fortran
 dlu(:,:,1) = 0.0D0
 dlu(:,:,2) = 0.0D0
  
