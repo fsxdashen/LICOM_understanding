@@ -13,10 +13,21 @@ DO K = 1, npz-1
   END DO
 END DO
 ```
-
 最终需要得到的条件如下
 
 $$R_i=\frac{g}{\rho _0}\frac{\partial \rho _{pot}}{\partial z}/\left[ \left( \frac{\partial u}{\partial z} \right) ^2+\left( \frac{\partial v}{\partial z} \right) ^2 \right] $$
+
+其中 $\rho_{pot}$为位密度，同样用 Bryan 和 Cox（1972）的九项式计算，垂直方向相邻两层的位密度计算参照两层中较深一层。
+
+该代码先考虑除剪切平方项之前的部分，并得到中间变量**rict**，具体为
+
+$$rict=\frac{g}{\rho _0}\frac{\delta \rho \left( T_{up},S_{up} \right) -\delta \rho \left( T_{low},S_{low} \right)}{\delta z}=\frac{g}{\rho _0}\frac{\delta \rho _{up}-\delta \rho _{low}}{\delta z}=\frac{g}{\rho _0}\frac{\partial \rho _{pot}}{\partial z}$$
+
+后面的剪切平方项的计算出现在readyc.F90中，所使用的代码为
+```Fortran
+call get_s2trit(s2t,rit,tracer%rict,dg,u,v,epsln)
+```
+在这里实现最终对 $Ri$的计算
 
 ---
 
