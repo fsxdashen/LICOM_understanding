@@ -35,7 +35,7 @@ why(:,:) = hby(:,:)*dlv(:,:,2)*vit(:,:,1)
 
 最终需要得到的条件如下：
 
-$$WGP(i,j) = \frac{\overline{g^{\prime}}}{g}+\frac{\overline{g^{\prime}\eta }}{g\eta _s}g \qquad WHX(i,j) = \frac{\overline{g^{\prime}\eta }}{\eta _s^2}\frac{\partial \eta_s}{\partial y} \qquad WHY(i,j) = \frac{\overline{g^{\prime}\eta }}{\eta _s^2}\frac{\partial \eta _s}{\partial x}$$
+$$WGP(i,j) = \frac{\overline{g^{\prime}}}{g}+\frac{\overline{g^{\prime}\eta }}{g\eta _s} \qquad WHX(i,j) = \frac{\overline{g^{\prime}\eta }}{\eta _s^2}\frac{\partial \eta_s}{\partial y} \qquad WHY(i,j) = \frac{\overline{g^{\prime}\eta }}{\eta _s^2}\frac{\partial \eta _s}{\partial x}$$
 
 模式垂直坐标采用了 $\eta$坐标系统，它和 $z$坐标的关系可表示为
 
