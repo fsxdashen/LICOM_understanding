@@ -3,9 +3,9 @@ subroutine pgf(pgf_x,pgf_y,momentum,psa,aa)
 ```
 该代码计算了两部分的压力梯度力，所参考的公式如下 (licom手册P31)
 
-$$\frac{\partial u}{\partial t}=-\vec{v}\cdot\nabla u-\frac{1}{\rho _0}\frac{\partial p}{\partial x}+g\prime \frac{\partial}{\partial x}\left[ \left( 1+\frac{H_m}{H_b}\eta \right) z_0 \right] +f*v+F_x$$
+$$\frac{\partial u}{\partial t}=-\vec{v}\cdot\nabla u-\frac{1}{\rho _0}\frac{\partial p}{\partial x}+g\prime \frac{\partial}{\partial x}\left[ \left( 1+\frac{H_m}{H_b}\eta \right) z_0 \right] + f*v+F_x$$
 
-$$\frac{\partial v}{\partial t}=-\vec{v}\cdot\nabla v-\frac{1}{\rho _0}\frac{\partial p}{\partial y}+g\prime \frac{\partial}{\partial y}\left[ \left( 1+\frac{H_m}{H_b}\eta \right) z_0 \right] +f*u+F_y$$
+$$\frac{\partial v}{\partial t}=-\vec{v}\cdot\nabla v-\frac{1}{\rho _0}\frac{\partial p}{\partial y}+g\prime \frac{\partial}{\partial y}\left[ \left( 1+\frac{H_m}{H_b}\eta \right) z_0 \right] - f*u+F_y$$
 
 其中 $H_m\eta\sim z_{k+0.5}(zkt)$
 
