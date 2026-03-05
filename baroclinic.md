@@ -46,3 +46,7 @@ $$\frac{\partial p}{\partial z}=-\rho g\prime \Longrightarrow \frac{\partial}{\p
 subroutine updatedluv(momentum,pgf_x,pgf_y)
 ```
 在上一步已经在右端项上加入压力梯度的基础上，进一步加上科氏力
+```Fortran
+dlv(:,:,k) = dlv(:,:,k) + pgf_y(:,:,k) - a_f * uu_ct(:,:,k)
+dlu(:,:,k) = dlu(:,:,k) + pgf_x(:,:,k) + a_f * vv_ct(:,:,k)
+```
